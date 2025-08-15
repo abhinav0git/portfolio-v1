@@ -7,12 +7,12 @@ const ProjectCard = ({ project }) => {
   return (
     <div className="project-card">
       <div className="project-details">
-        <h3 className="project-title">{project.title}</h3>
-        <span className="project-date">{project.date}</span>
-        <p className="project-description">{project.description}</p>
+        <h3 className="project-title font-semibold">{project.title}</h3>
+        <span className="project-date font-light">{project.date}</span>
+        <p className="project-description font-regular">{project.description}</p>
         <div className="project-tags">
           {project.tags.map((tag) => (
-            <span key={tag} className="tag">{tag}</span>
+            <span key={tag} className="tag font-medium">{tag}</span>
           ))}
         </div>
         <div className="project-links">
@@ -33,17 +33,17 @@ const ExperienceItem = ({ item }) => {
   return (
     <div className="experience-item">
       <div className="experience-header">
-        <h3 className="experience-role">{item.role}</h3>
-        <span className="experience-dates">{item.dates}</span>
+        <h3 className="experience-role font-semibold">{item.role}</h3>
+        <span className="experience-dates font-light">{item.dates}</span>
       </div>
-      <div className="experience-subheader">
+      <div className="experience-subheader font-medium">
         <span>{item.company}</span>
         <span>&middot;</span>
         <span>{item.type}</span>
         <span>&middot;</span>
         <span>{item.location}</span>
       </div>
-      <ul className="experience-description">
+      <ul className="experience-description font-regular">
         {item.description.map((point, index) => (
           <li key={index}>{point}</li>
         ))}
@@ -57,11 +57,12 @@ const MainContent = () => {
 
   return (
     <main className="main-content">
+      {/* The tabs will become our sticky header */}
       <div className="tabs">
-        <button className={activeTab === 'Projects' ? 'active' : ''} onClick={() => setActiveTab('Projects')}>Projects</button>
-        <button className={activeTab === 'Experience' ? 'active' : ''} onClick={() => setActiveTab('Experience')}>Experience</button>
-        <button className={activeTab === 'TIL' ? 'active' : ''} onClick={() => setActiveTab('TIL')}>TIL</button>
-        <button className={activeTab === 'Designs' ? 'active' : ''} onClick={() => setActiveTab('Designs')}>Designs</button>
+        <button className={activeTab === 'Projects' ? 'active font-medium' : 'font-regular'} onClick={() => setActiveTab('Projects')}>Projects</button>
+        <button className={activeTab === 'Experience' ? 'active font-medium' : 'font-regular'} onClick={() => setActiveTab('Experience')}>Experience</button>
+        <button className={activeTab === 'TIL' ? 'active font-medium' : 'font-regular'} onClick={() => setActiveTab('TIL')}>TIL</button>
+        <button className={activeTab === 'Designs' ? 'active font-medium' : 'font-regular'} onClick={() => setActiveTab('Designs')}>Designs</button>
       </div>
 
       {/* This area will now be the scrollable part */}
@@ -81,7 +82,7 @@ const MainContent = () => {
           </div>
         )}
         {(activeTab === 'TIL' || activeTab === 'Designs') && (
-            <div className="placeholder-content">
+            <div className="placeholder-content font-medium">
                 Content for {activeTab} will be here.
             </div>
         )}

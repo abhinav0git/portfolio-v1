@@ -1,16 +1,11 @@
-Let's address issues.
-
-The core idea is to make the right-hand `MainContent` component a self-contained unit with a sticky header (the tabs) and a scrollable body (the content).
-
-Here’s how we'll fix it step-by-step:
+Of course, I can help with that. Here are the steps to fix the UI and UX of your portfolio, based on the instructions you provided.
 
 ### Step 1: Add Experience Data
 
-First, to properly test the tab switching and layout consistency, let's add some data for the "Experience" tab.
+First, to properly test the tab switching and layout, let's add some data for the "Experience" tab.
 
 Open **`src/projectsData.js`** and add the following array to it:
 
-**`src/projectsData.js`**
 ```javascript
 // ... keep the existing 'projects' array ...
 
@@ -44,7 +39,7 @@ export const experience = [
 ];
 ```
 
----
+-----
 
 ### Step 2: Update `MainContent.jsx` to Render Experience
 
@@ -136,13 +131,11 @@ const MainContent = () => {
 };
 
 export default MainContent;
-
 ```
-*We've created a new `ExperienceItem` component and added the logic to render it when the `activeTab` is 'Experience'.*
 
----
+-----
 
-### Step 3: The CSS Fix for Sticky Tabs and Scrolling
+### Step 3: Fix the CSS for Sticky Tabs and Scrolling
 
 This is the most important part. We will modify **`src/components/MainContent.css`** to restructure the layout of the right-hand column.
 
@@ -310,15 +303,17 @@ Replace the entire content of **`src/components/MainContent.css`** with the foll
 @media (max-width: 1024px) { /* ... same as before ... */ }
 ```
 
-### Summary of Changes
+Also, remember to change the width of your sidebar in **`src/components/Sidebar.css`**. Find the `.sidebar` class and set the `width` to **35%**:
 
-1.  **Layout Consistency:** By setting `width: 35%` on the sidebar and `width: 65%` on the main content, their proportions are fixed and won't change based on the content inside. This solves your second issue.
-2.  **Sticky Tabs:**
-    *   We made the `.main-content` container a vertical `flex` box that is `100vh` (100% of the viewport height).
-    *   We applied `position: sticky` and `top: 0` to the `.tabs` div, making it stick to the top of its container (`.main-content`). The `z-index` ensures it's on top of other content.
-    *   We added a modern, semi-transparent background with a `backdrop-filter` to the tabs so you can see the content scrolling underneath.
-3.  **Scrollable Content:**
-    *   The real magic is giving the `.content-area` div `overflow-y: auto`. This tells the browser: "If the content inside me is taller than I am, add a scrollbar *to me*, not the whole page."
-    *   `flex-grow: 1` ensures this content area expands to fill all available vertical space left by the sticky tabs.
+```css
+.sidebar {
+  width: 35%;
+  padding: 50px 40px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+```
 
-Now, your portfolio should behave exactly as requested. The tabs will remain fixed at the top of the right-hand column as you scroll through the projects or experience, and the overall layout will stay perfectly consistent when you switch between tabs.
+By setting a fixed width for the sidebar and the main content, their proportions will no longer change when you switch tabs. The main content area will now have its own scrollbar, and the tabs will remain "stuck" to the top of the right-hand column as you scroll. This should resolve the issues you were facing.
