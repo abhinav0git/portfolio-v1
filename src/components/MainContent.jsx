@@ -28,7 +28,7 @@ const ProjectCard = ({ project }) => {
 };
 
 
-// NEW: ExperienceItem Component
+// ExperienceItem Component
 const ExperienceItem = ({ item }) => {
   return (
     <div className="experience-item">
@@ -65,7 +65,7 @@ const MainContent = () => {
         <button className={activeTab === 'Designs' ? 'active font-medium' : 'font-regular'} onClick={() => setActiveTab('Designs')}>Designs</button>
       </div>
 
-      {/* This area will now be the scrollable part */}
+      {/* scrollable part */}
       <div className="content-area">
         {activeTab === 'Projects' && (
           <div className="project-list">

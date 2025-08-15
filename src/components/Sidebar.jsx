@@ -24,15 +24,13 @@ const Sidebar = () => {
         </div>
 
         <div className="social-links">
-          <a href="#" aria-label="GitHub"><FiGithub /></a>
-          <a href="#" aria-label="Twitter"><FiTwitter /></a>
-          <a href="#" aria-label="Email"><FiMail /></a>
-          <a href="#" aria-label="Discord"><FaDiscord /></a>
-          <a href="#" aria-label="LinkedIn"><FiLinkedin /></a>
+          <a href="https://github.com/abhinav0git" aria-label="GitHub"><FiGithub /></a>
+          <a href="https://x.com/abhinav0dev" aria-label="Twitter"><FiTwitter /></a>
+          <a href="mailto:abhin07c@gmail.com" aria-label="Email"><FiMail /></a>
+          <a href="https://www.linkedin.com/in/abhinav07c/" aria-label="LinkedIn"><FiLinkedin /></a>
         </div>
 
         <div className="action-buttons">
-          <button className="btn-primary font-medium">Schedule a call</button>
           <button className="btn-secondary font-medium">Resume</button>
         </div>
       </div>
