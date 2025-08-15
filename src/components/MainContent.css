@@ -1,0 +1,214 @@
+.main-content {
+  height: 100vh; 
+  display: flex; 
+  flex-direction: column;
+}
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem 40px 0; 
+  
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  
+  background-color: rgba(35, 38, 64, 0.8); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative; 
+}
+
+.tabs::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 40px;
+    right: 40px;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.tabs button {
+  padding: 0.75rem 1rem 1.5rem;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.tabs button:hover {
+  color: var(--text-primary);
+}
+
+.tabs button.active {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Reposition active indicator to the actual bottom */
+.tabs button.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+}
+
+
+/* -- Scrollable Content Area -- */
+.content-area {
+  overflow-y: auto; /* THIS IS THE KEY: makes this div scrollable */
+  flex-grow: 1; /* Allows this area to fill the remaining space */
+  padding: 2rem 40px; /* Padding for the content itself */
+}
+
+
+/* -- Project & Experience Lists (mostly the same, just adding experience) -- */
+.project-list, .experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Project Card styles (no changes) */
+.project-card {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  display: flex;
+  gap: 2rem;
+  transition: all 0.3s ease;
+}
+.project-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.project-details { flex: 3; }
+.project-title {
+  font-size: 1.5rem;
+  margin: 0 0 0.25rem 0;
+  color: var(--text-primary);
+}
+.project-date {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 1rem;
+}
+.project-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.tag {
+  background-color: rgba(70, 81, 126, 0.3);
+  color: var(--text-secondary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+}
+.project-links {
+    font-size: 1.25rem;
+    display: flex;
+    gap: 1rem;
+}
+.project-links a {
+    color: var(--text-secondary);
+}
+.project-links a:hover {
+    color: var(--text-primary);
+}
+.project-image-container { 
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.project-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* NEW: Experience Item styles */
+.experience-item {
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid transparent; /* Keep layout consistent */
+  transition: all 0.3s ease;
+}
+
+.experience-item:hover {
+  background-color: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.experience-role {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin: 0;
+}
+
+.experience-dates {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.experience-subheader {
+  display: flex;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.experience-description {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.experience-description li::marker {
+  color: var(--accent-color);
+}
+
+
+/* Placeholder and Responsive styles (no changes) */
+.placeholder-content {
+    padding: 4rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+}
+@media (max-width: 1024px) {
+  .main-content {
+    width: 100%;
+    padding: 0 20px 40px;
+  }
+  .project-card {
+    flex-direction: column;
+  }
+}
