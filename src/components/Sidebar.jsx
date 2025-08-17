@@ -20,11 +20,12 @@ const Sidebar = () => {
         </div>
 
         <div className="skills-section">
-          <p><strong className="font-semibold">Frontend:</strong> React, Next.js, TailwindCSS, SCSS, Framer Motion, GSAP, Redux</p>
-          <p><strong className="font-semibold">Backend:</strong> Express.js, Fastapi, Flask, Go</p>
-          <p><strong className="font-semibold">Database:</strong> MySQL, MongoDB, PostgreSQL, Redis</p>
-          <p><strong className="font-semibold">Cloud:</strong> AWS Certified, Vercel, Cloudflare</p>
-          <p><strong className="font-semibold">Web3:</strong> Solana/web3.js, Ethers.js</p>
+          <p><strong className="font-semibold">Frontend:</strong> React.js, Next.js, TailwindCSS, Framer Motion, GSAP</p>
+          <p><strong className="font-semibold">Backend:</strong> Node.js, FastAPI, Flask, Firebase</p>
+          <p><strong className="font-semibold">Database:</strong> MySQL, MongoDB</p>
+          <p><strong className="font-semibold">Cloud:</strong> GCP, Vercel, Netlify</p>
+          <p><strong className="font-semibold">Miscellaneous:</strong> C/C++, REST API, PostHog, Pinecone</p>
+          <p><strong className="font-semibold">Tools:</strong> Git/GitHub, Figma, JIRA, VS Code, SQL Management Studio</p>
         </div>
 
         <div className="social-links">
