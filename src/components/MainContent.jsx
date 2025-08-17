@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import './MainContent.css';
 import { projects, experience } from '../projectsData'; 
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
@@ -27,7 +28,6 @@ const ProjectCard = ({ project }) => {
   );
 };
 
-
 // ExperienceItem Component
 const ExperienceItem = ({ item }) => {
   return (
@@ -53,44 +53,99 @@ const ExperienceItem = ({ item }) => {
 };
 
 const MainContent = () => {
-  const [activeTab, setActiveTab] = useState('Projects');
+  const [activePageIndex, setActivePageIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const tabs = ['Projects', 'Experience', 'Gallery'];
+
+  const setPage = (newIndex) => {
+    if (newIndex === activePageIndex) return;
+    setDirection(newIndex > activePageIndex ? 1 : -1);
+    setActivePageIndex(newIndex);
+  };
+  
+  const variants = {
+    enter: (direction) => ({
+      x: direction > 0 ? '50%' : '-50%',
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        x: { type: 'spring', stiffness: 300, damping: 22 },
+        opacity: { duration: 0.2 },
+      }
+    },
+    exit: (direction) => ({
+      x: direction < 0 ? '50%' : '-50%',
+      opacity: 0,
+      transition: {
+        x: { type: 'spring', stiffness: 300, damping: 22 },
+        opacity: { duration: 0.2 },
+      }
+    }),
+  };
+  
+  const renderContent = (index) => {
+    switch(index) {
+      case 0:
+        return (
+          <div className="project-list">
+            {projects.map((project, i) => (
+              <ProjectCard key={i} project={project} />
+            ))}
+          </div>
+        );
+      case 1:
+        return (
+          <div className="experience-list">
+            {experience.map((item, i) => (
+              <ExperienceItem key={i} item={item} />
+            ))}
+          </div>
+        );
+      case 2:
+        return (
+           <div className="design-list">
+            <div className="placeholder-content">
+              <h2>Gallery Coming Soon</h2>
+              <p>This section will showcase visual designs and creative work.</p>
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  }
 
   return (
     <main className="main-content">
-      {/* The tabs will become our sticky header */}
       <div className="tabs">
-        <button className={activeTab === 'Projects' ? 'active font-medium' : 'font-regular'} onClick={() => setActiveTab('Projects')}>
-          Projects
-        </button>
-        <button className={activeTab === 'Experience' ? 'active font-medium' : 'font-regular'} onClick={() => setActiveTab('Experience')}>
-          Experience
-        </button>
-        <button className={activeTab === 'Gallery' ? 'active font-medium' : 'font-regular'} onClick={() => setActiveTab('Gallery')}>
-          Gallery
-        </button>
+        {tabs.map((tab, index) => (
+          <button
+            key={tab}
+            className={activePageIndex === index ? 'active font-medium' : 'font-regular'}
+            onClick={() => setPage(index)}
+          >
+            {tab}
+          </button>
+        ))}
       </div>
 
-      {/* scrollable part */}
       <div className="content-area">
-        {activeTab === 'Projects' && (
-          <div className="project-list">
-            {projects.map((project, index) => (
-              <ProjectCard key={index} project={project} />
-            ))}
-          </div>
-        )}
-        {activeTab === 'Experience' && (
-          <div className="experience-list">
-            {experience.map((item, index) => (
-              <ExperienceItem key={index} item={item} />
-            ))}
-          </div>
-        )}
-        {activeTab === 'Gallery' && (
-          <div className="design-list">
-            {/* Map through your design data here */}
-          </div>
-        )}
+        <AnimatePresence initial={false} custom={direction} mode="popLayout">
+          <motion.div
+            key={activePageIndex}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+          >
+            {renderContent(activePageIndex)}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </main>
   );

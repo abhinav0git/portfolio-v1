@@ -50,8 +50,10 @@
 
 .content-area {
   overflow-y: auto;
+  overflow-x: hidden; /* Added to clip horizontal animation */
   flex-grow: 1;
   padding: 2rem;
+  position: relative; /* Added for positioning context */
 }
 
 .project-list, .experience-list {
