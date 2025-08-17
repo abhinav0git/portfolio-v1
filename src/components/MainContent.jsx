@@ -4,7 +4,7 @@ import './MainContent.css';
 import { projects, experience } from '../projectsData'; 
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, index }) => {
   return (
     <div className="project-card">
       <div className="project-details">
@@ -28,7 +28,7 @@ const ProjectCard = ({ project }) => {
   );
 };
 
-const ExperienceItem = ({ item }) => {
+const ExperienceItem = ({ item, index }) => {
   return (
     <div className="experience-item">
       <div className="experience-header">
@@ -92,7 +92,7 @@ const MainContent = () => {
         return (
           <div className="project-list">
             {experience.map((item, i) => (
-              <ExperienceItem key={i} item={item} />
+              <ExperienceItem key={i} item={item} index={i} />
             ))}
           </div>
         );
@@ -100,7 +100,7 @@ const MainContent = () => {
         return (
           <div className="experience-list">
             {projects.map((project, i) => (
-              <ProjectCard key={i} project={project} />
+              <ProjectCard key={i} project={project} index={i} />
             ))}
           </div>
         );
@@ -120,7 +120,12 @@ const MainContent = () => {
 
   return (
     <main className="main-content">
-      <div className="tabs">
+      <motion.div 
+        className="tabs"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
         {tabs.map((tab, index) => (
           <button
             key={tab}
@@ -130,7 +135,7 @@ const MainContent = () => {
             {tab}
           </button>
         ))}
-      </div>
+      </motion.div>
 
       <div className="content-area">
         <AnimatePresence initial={false} custom={direction} mode="popLayout">

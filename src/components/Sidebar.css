@@ -1,5 +1,5 @@
 .sidebar {
-  width: 38%;
+  width: 100%;
   height: calc(100vh - 2rem);
   padding: 2.25rem;
   position: sticky;
@@ -7,7 +7,6 @@
   overflow-y: auto;
   background-color: var(--bg-secondary);
   border-radius: 16px;
-  margin-right: 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
@@ -44,11 +43,11 @@
   border: 1px solid transparent;
   flex-shrink: 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .profile-image:hover {
-  transform: scale(1.05);
+  transform: scale(1.15);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
@@ -145,6 +144,23 @@
 .skills-section strong {
   color: var(--text-primary);
   font-weight: 600;
+}
+
+.shiny-button {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+  background: linear-gradient(#ffffff, #ffffff) padding-box,linear-gradient(90deg, #11998e, #38ef7d, #f7797d, #C6FFDD, #11998e) border-box;
+  background-size: 300% 100%;
+  animation: shine 3s linear infinite;
+  box-shadow: 0 0 10px rgb(94, 196, 255);
+  transition: all 0.15s ease;
+}
+
+.shiny-button:hover {
+  box-shadow: 0 0 18px rgb(94, 196, 255);
+  transform: scale(1.05);
+  animation: shine 1.5s linear infinite;
 }
 
 @media (max-width: 1024px) {

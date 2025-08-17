@@ -1,5 +1,5 @@
 .main-content {
-  width: 65%;
+  width: 100%;
   height: calc(100vh - 2rem);
   display: flex;
   flex-direction: column;
@@ -208,7 +208,7 @@
   }
   
   .tabs {
-    padding: 1.2rem 1.5rem 0;
+    padding: 1.2rem 1.5rem;
   }
   
   .content-area {
@@ -217,5 +217,9 @@
   
   .project-card {
     flex-direction: column;
+  }
+
+  .placeholder-content {
+    min-height: 800px;
   }
 }

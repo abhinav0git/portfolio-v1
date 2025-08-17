@@ -1,0 +1,27 @@
+/* Wrapper styles for the sidebar and main content */
+.sidebar-wrapper {
+  /* flex: 0 0 400px; */
+  max-width: 38%;
+  height: 100%;
+  overflow-y: auto;
+  margin-right: 1rem;
+}
+
+.main-content-wrapper {
+  flex: 1;
+  overflow: auto;
+  height: 100%;
+}
+
+@media (max-width: 1024px) {
+  .sidebar-wrapper,
+  .main-content-wrapper {
+    flex: 1 1 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .sidebar-wrapper {
+    margin-bottom: 2rem;
+  }
+}
