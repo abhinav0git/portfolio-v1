@@ -11,7 +11,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --background: #f7f9f3;
+  --background: #f0f0f0;
   --foreground: #000000;
   --card: #ffffff;
   --card-foreground: #000000;
@@ -22,7 +22,7 @@
   --secondary: #14b8a6;
   --secondary-foreground: #ffffff;
   --muted: #f0f0f0;
-  --muted-foreground: #333333;
+  --muted-foreground: #333333c8;
   --accent: #f59e0b;
   --accent-color-rgb: 245, 158, 11;
   --accent-foreground: #000000;
