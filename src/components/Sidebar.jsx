@@ -11,7 +11,11 @@ const Sidebar = () => {
           <h1 className="name font-bold">Abhinav Singh</h1>
           <p className="tagline font-medium">Bringing Ideas to Reality ✨</p>
           <p className="bio font-regular">
-            Hey there 👋 I'm a  text a.k.a a <strong>generalist</strong>. I work on web, mobile, desktop, server, and embedded systems. I've worked with clients like <strong>Major Corp Inc.</strong>. I love Modern UI/UX, Computer Science, and creating elegant solutions to complex problems.
+            Hey there 👋 <br />I'm a <strong>Software Developer</strong> who loves building intuitive and modern
+            web experiences. I enjoy bringing thoughtful design and clean code together, making sure
+            that what I build not only works well but also feels great to use. <br /><br />
+            With a strong foundation in <strong>full-stack development</strong> and a passion for <strong>UI/UX</strong>, I aim to
+            create digital products that are both elegant and impactful.
           </p>
         </div>
 

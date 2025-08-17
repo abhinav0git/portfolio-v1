@@ -28,7 +28,6 @@ const ProjectCard = ({ project }) => {
   );
 };
 
-// ExperienceItem Component
 const ExperienceItem = ({ item }) => {
   return (
     <div className="experience-item">
@@ -56,7 +55,7 @@ const MainContent = () => {
   const [activePageIndex, setActivePageIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  const tabs = ['Projects', 'Experience', 'Gallery'];
+  const tabs = ['Experience', 'Projects', 'Gallery'];
 
   const setPage = (newIndex) => {
     if (newIndex === activePageIndex) return;
@@ -92,16 +91,16 @@ const MainContent = () => {
       case 0:
         return (
           <div className="project-list">
-            {projects.map((project, i) => (
-              <ProjectCard key={i} project={project} />
+            {experience.map((item, i) => (
+              <ExperienceItem key={i} item={item} />
             ))}
           </div>
         );
       case 1:
         return (
           <div className="experience-list">
-            {experience.map((item, i) => (
-              <ExperienceItem key={i} item={item} />
+            {projects.map((project, i) => (
+              <ProjectCard key={i} project={project} />
             ))}
           </div>
         );
@@ -110,7 +109,7 @@ const MainContent = () => {
            <div className="design-list">
             <div className="placeholder-content">
               <h2>Gallery Coming Soon</h2>
-              <p>This section will showcase visual designs and creative work.</p>
+              <p className=''>This section will showcase visual designs and creative work.</p>
             </div>
           </div>
         );
