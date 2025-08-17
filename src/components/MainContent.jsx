@@ -59,10 +59,15 @@ const MainContent = () => {
     <main className="main-content">
       {/* The tabs will become our sticky header */}
       <div className="tabs">
-        <button className={activeTab === 'Projects' ? 'active font-medium' : 'font-regular'} onClick={() => setActiveTab('Projects')}>Projects</button>
-        <button className={activeTab === 'Experience' ? 'active font-medium' : 'font-regular'} onClick={() => setActiveTab('Experience')}>Experience</button>
-        <button className={activeTab === 'TIL' ? 'active font-medium' : 'font-regular'} onClick={() => setActiveTab('TIL')}>TIL</button>
-        <button className={activeTab === 'Designs' ? 'active font-medium' : 'font-regular'} onClick={() => setActiveTab('Designs')}>Designs</button>
+        <button className={activeTab === 'Projects' ? 'active font-medium' : 'font-regular'} onClick={() => setActiveTab('Projects')}>
+          Projects
+        </button>
+        <button className={activeTab === 'Experience' ? 'active font-medium' : 'font-regular'} onClick={() => setActiveTab('Experience')}>
+          Experience
+        </button>
+        <button className={activeTab === 'Gallery' ? 'active font-medium' : 'font-regular'} onClick={() => setActiveTab('Gallery')}>
+          Gallery
+        </button>
       </div>
 
       {/* scrollable part */}
@@ -81,10 +86,10 @@ const MainContent = () => {
             ))}
           </div>
         )}
-        {(activeTab === 'TIL' || activeTab === 'Designs') && (
-            <div className="placeholder-content font-medium">
-                Content for {activeTab} will be here.
-            </div>
+        {activeTab === 'Gallery' && (
+          <div className="design-list">
+            {/* Map through your design data here */}
+          </div>
         )}
       </div>
     </main>

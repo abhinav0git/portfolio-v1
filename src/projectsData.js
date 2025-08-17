@@ -31,29 +31,30 @@ export const projects = [
 
 export const experience = [
   {
-    role: 'Freelance Developer',
-    company: 'Self-employed',
-    type: 'Freelance',
-    location: 'Remote',
-    dates: 'December 2024 - Present',
+    role: 'Frontend Developer',
+    company: 'galleri5',
+    type: 'Full-time',
+    location: 'On-site',
+    dates: 'May 2024 - Present',
     description: [
       'Developed custom web applications and e-commerce solutions for multiple clients.',
       'Built responsive websites using React, Next.js and modern frontend technologies.',
       'Provided technical consulting and solutions architecture for small businesses.',
-      'Tech: React, Next.js, TypeScript, Node.js, MongoDB, Tailwind, Framer Motion, AWS',
+      'Tech: React, Next.js, React.js, TypeScript, Node.js, MongoDB, Tailwind, Framer Motion',
     ],
   },
   {
-    role: 'Software Engineer',
-    company: 'RMSI (Client - Apple Inc.)',
+    role: 'Associate Software Developer',
+    company: 'Lepide Software',
     type: 'Full-time',
-    location: 'Remote',
-    dates: 'October 2023 - December 2024',
+    location: 'On-site',
+    dates: 'June 2024 - February 2024',
     description: [
-      'Engineered a VPN for Apple Maps data translation & validation using Node.js/Express/MySQL.',
-      'Built data visualization tool with React/AWS for digitalization analysis.',
+      'Collaborated in designing and implemented API’s and back-end functionalities using C# and .NET Framework.',
+      'Wrote clean C# code with solid OOP principles while handling system-level components like multi-threading, memory optimization, and Windows DLL/Registry integration.',
       'Led Next.js POC initiatives demonstrating scalable solutions.',
-      'Tech: Node.js, Express, MySQL, Next.js, TypeScript, React, Tailwind, AWS',
+      'Maintained Data Classification for sensitive data like Aadhaar card, PAN card across Exchange, Sharepoint, File Server.',
+      'Tech: C++, SQL, .Net Framework, MFC Framework, Share-Point Online API, One-Drive API',
     ],
   },
 ];
